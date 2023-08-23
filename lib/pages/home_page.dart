@@ -23,6 +23,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var taskModel = context.watch<TaskModel>();
 
+    void onCompleteTask(element) {
+      taskModel.complete(element);
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -33,7 +37,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: List.from(taskModel.tasks.map((element) => ListTile(
-            leading: TaskCompletedBadge(completed: element.completed),
+            leading: element.completed
+                ? TaskCompletedBadge(completed: element.completed)
+                : Checkbox(
+                    value: element.completed,
+                    onChanged: (value) => onCompleteTask(element)),
             title: Text(element.title, style: const TextStyle(fontSize: 18))))),
       ),
       floatingActionButton: FloatingActionButton(

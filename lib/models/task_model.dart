@@ -10,14 +10,17 @@ class TaskModel extends ChangeNotifier {
 
   void add(Task task) {
     _tasks.add(task);
-    // This call tells the widgets that are listening to this model to rebuild.
     notifyListeners();
   }
 
-  /// Removes all items from the cart.
+  void complete(Task task) {
+    var index = _tasks.indexOf(task);
+    _tasks[index].completed = true;
+    notifyListeners();
+  }
+
   void removeAll() {
     _tasks.clear();
-    // This call tells the widgets that are listening to this model to rebuild.
     notifyListeners();
   }
 }
