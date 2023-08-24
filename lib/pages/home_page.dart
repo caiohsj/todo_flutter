@@ -28,13 +28,6 @@ class _HomePageState extends State<HomePage> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(
-          widget.title,
-          style: const TextStyle(color: Colors.white),
-        ),
-      ),
       body: ListView(
         children: List.from(taskModel.tasks.map((element) => ListTile(
             leading: element.completed
