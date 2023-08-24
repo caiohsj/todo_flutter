@@ -39,6 +39,9 @@ class CreateTaskPageState extends State<CreateTaskPage> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Create task"),
+      ),
       body: Center(
           child: Padding(
         padding: const EdgeInsets.all(18),
