@@ -46,12 +46,12 @@ class CreateTaskPageState extends State<CreateTaskPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              decoration: const InputDecoration(hintText: "Descrição"),
+              decoration: const InputDecoration(hintText: "Description"),
               onChanged: onChangedDescription,
             ),
             Row(
               children: [
-                const Text("Completou?", style: TextStyle(fontSize: 16)),
+                const Text("Completed?", style: TextStyle(fontSize: 16)),
                 Checkbox(value: completed, onChanged: onChangedCheckBox)
               ],
             ),
@@ -62,7 +62,7 @@ class CreateTaskPageState extends State<CreateTaskPage> {
                     padding: MaterialStatePropertyAll(
                         EdgeInsets.symmetric(vertical: 2, horizontal: 28))),
                 child: const Text(
-                  "Salvar",
+                  "Save",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ))
           ],
