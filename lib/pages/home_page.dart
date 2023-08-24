@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: navigateToCreateTask,
-        tooltip: 'Increment',
+        tooltip: 'Add Task',
         child: const Icon(Icons.add),
       ),
     );
