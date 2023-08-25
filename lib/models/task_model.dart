@@ -13,9 +13,9 @@ class TaskModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void complete(Task task) {
+  void toggle(Task task) {
     var index = _tasks.indexOf(task);
-    _tasks[index].completed = true;
+    _tasks[index].completed = !_tasks[index].completed;
     notifyListeners();
   }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_flutter/components/task_completed_badge.dart';
 import 'package:todo_flutter/models/task_model.dart';
 import 'package:todo_flutter/pages/create_task_page.dart';
 
@@ -23,18 +22,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var taskModel = context.watch<TaskModel>();
 
-    void onCompleteTask(element) {
-      taskModel.complete(element);
+    void onToggleComplete(element) {
+      taskModel.toggle(element);
     }
 
     return Scaffold(
       body: ListView(
         children: List.from(taskModel.tasks.map((element) => ListTile(
-            leading: element.completed
-                ? TaskCompletedBadge(completed: element.completed)
-                : Checkbox(
-                    value: element.completed,
-                    onChanged: (value) => onCompleteTask(element)),
+            leading: Checkbox(
+                value: element.completed,
+                onChanged: (value) => onToggleComplete(element)),
             title: Text(element.title, style: const TextStyle(fontSize: 18))))),
       ),
       floatingActionButton: FloatingActionButton(
